@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BAO — Pan-Asian Restaurant</title>
+
+<meta name="description"
+content="BAO — паназиатский ресторан в Алматы. Рамен, суши, WOK, поке, том-ям и многое другое.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#0b0b0a;
+    --bg2:#121110;
+    --card:#181715;
+    --white:#f5f0e8;
+    --gray:#a49f97;
+    --orange:#f18a35;
+    --orange2:#ffb066;
+    --line:rgba(255,255,255,.09);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* ---------------- HEADER ---------------- */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+
+    border-bottom:1px solid transparent;
+
+    transition:.4s;
+}
+
+header.scrolled{
+    background:rgba(11,11,10,.78);
+    backdrop-filter:blur(18px);
+    border-color:var(--line);
+}
+
+.container{
+    width:min(1180px,calc(100% - 40px));
+    margin:auto;
+}
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:Manrope;
+    font-size:29px;
+    font-weight:800;
+    letter-spacing:-2px;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#c9c4bc;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.reserve{
+    border:1px solid rgba(241,138,53,.6);
+    background:rgba(241,138,53,.08);
+    padding:11px 18px;
+    border-radius:50px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.reserve:hover{
+    background:var(--orange);
+    color:#17110c;
+    transform:translateY(-2px);
+}
+
+.mobile-menu{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:27px;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6,6,5,.96) 0%,
+            rgba(6,6,5,.75) 45%,
+            rgba(6,6,5,.25) 100%
+        ),
+        url("https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:300px;
+
+    background:linear-gradient(
+        transparent,
+        var(--bg)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding-top:70px;
+}
+
+.kicker{
+    color:var(--orange);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.kicker::before{
+    content:"";
+    display:inline-block;
+    width:35px;
+    height:1px;
+    background:var(--orange);
+    margin-right:10px;
+    vertical-align:middle;
+}
+
+h1{
+    font-family:Manrope;
+    font-size:clamp(60px,9vw,115px);
+    line-height:.87;
+    letter-spacing:-6px;
+    max-width:850px;
+}
+
+h1 span{
+    color:var(--orange);
+}
+
+.hero-description{
+    margin-top:30px;
+    max-width:560px;
+    color:#c6c0b8;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:34px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 23px;
+    border-radius:50px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    font-weight:700;
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.btn-main{
+    background:var(--orange);
+    color:#17110b;
+    box-shadow:0 15px 40px rgba(241,138,53,.2);
+}
+
+.btn-main:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 55px rgba(241,138,53,.35);
+}
+
+.btn-dark{
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--line);
+    backdrop-filter:blur(10px);
+}
+
+.btn-dark:hover{
+    background:rgba(255,255,255,.12);
+    transform:translateY(-4px);
+}
+
+.hero-stats{
+    position:absolute;
+    z-index:3;
+    bottom:35px;
+    left:0;
+    width:100%;
+}
+
+.stats{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    color:#aaa49b;
+    font-size:12px;
+}
+
+.stat strong{
+    color:white;
+    font-size:19px;
+    margin-right:4px;
+}
+
+.stat-line{
+    width:1px;
+    height:28px;
+    background:var(--line);
+}
+
+/* ---------------- GENERAL ---------------- */
+
+section{
+    padding:120px 0;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:40px;
+    margin-bottom:50px;
+}
+
+h2{
+    font-family:Manrope;
+    font-size:clamp(38px,5vw,65px);
+    line-height:.95;
+    letter-spacing:-3px;
+}
+
+.section-description{
+    color:var(--gray);
+    max-width:430px;
+    line-height:1.7;
+}
+
+/* ---------------- ABOUT ---------------- */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-image{
+    height:590px;
+    overflow:hidden;
+    border-radius:28px;
+    position:relative;
+}
+
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s;
+}
+
+.about-image:hover img{
+    transform:scale(1.05);
+}
+
+.image-label{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+
+    background:rgba(10,10,9,.75);
+    backdrop-filter:blur(15px);
+
+    padding:12px 16px;
+    border-radius:14px;
+
+    font-size:12px;
+}
+
+.about-text p{
+    color:#aaa49b;
+    line-height:1.9;
+    margin-top:22px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:32px;
+}
+
+.feature{
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:20px;
+}
+
+.feature strong{
+    display:block;
+    margin-bottom:8px;
+}
+
+.feature span{
+    color:#77736d;
+    font-size:12px;
+    line-height:1.5;
+}
+
+/* ---------------- MENU ---------------- */
+
+.menu{
+    background:#11100f;
+}
+
+.menu-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:30px;
+}
+
+.tab{
+    border:1px solid var(--line);
+    color:#a7a198;
+    background:transparent;
+
+    padding:10px 16px;
+    border-radius:50px;
+
+    cursor:pointer;
+    transition:.25s;
+}
+
+.tab:hover,
+.tab.active{
+    background:var(--orange);
+    color:#17110c;
+    border-color:var(--orange);
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+
+    padding:22px;
+
+    border-radius:18px;
+    border:1px solid var(--line);
+
+    background:#171614;
+
+    transition:.3s;
+}
+
+.menu-item:hover{
+    transform:translateY(-5px);
+    border-color:rgba(241,138,53,.4);
+    background:#1b1917;
+}
+
+.menu-item h3{
+    font-size:15px;
+    margin-bottom:7px;
+}
+
+.menu-item p{
+    color:#747069;
+    font-size:12px;
+}
+
+.price{
+    color:var(--orange);
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.hide{
+    display:none;
+}
+
+/* ---------------- FULL IMAGE SECTION ---------------- */
+
+.experience{
+    min-height:620px;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,8,7,.93),
+            rgba(8,8,7,.35)
+        ),
+        url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=2200&q=90")
+        center/cover fixed;
+}
+
+.experience-content{
+    max-width:680px;
+}
+
+.experience p{
+    max-width:530px;
+    margin-top:25px;
+    color:#c7c1b8;
+    line-height:1.8;
+}
+
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:28px;
+}
+
+.badge{
+    padding:10px 14px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:50px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(8px);
+    font-size:12px;
+}
+
+/* ---------------- DELIVERY ---------------- */
+
+.delivery-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.delivery-image{
+    height:520px;
+    border-radius:28px;
+    overflow:hidden;
+}
+
+.delivery-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.info-list{
+    display:grid;
+    gap:12px;
+    margin-top:30px;
+}
+
+.info{
+    display:flex;
+    gap:15px;
+    padding:17px;
+
+    background:#141311;
+    border:1px solid var(--line);
+    border-radius:17px;
+}
+
+.icon{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+
+    display:grid;
+    place-items:center;
+
+    color:var(--orange);
+    background:rgba(241,138,53,.1);
+    border-radius:12px;
+}
+
+.info strong{
+    font-size:14px;
+}
+
+.info span{
+    display:block;
+    color:#77736d;
+    font-size:12px;
+    line-height:1.5;
+    margin-top:5px;
+}
+
+/* ---------------- CONTACT ---------------- */
+
+.contact-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    border:1px solid var(--line);
+    border-radius:30px;
+    overflow:hidden;
+
+    background:#151412;
+}
+
+.contact-content{
+    padding:55px;
+}
+
+.contact-content p{
+    color:#8f8981;
+    line-height:1.7;
+    margin-top:20px;
+    max-width:480px;
+}
+
+.contact-links{
+    display:grid;
+    margin-top:28px;
+}
+
+.contact-link{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+
+    padding:16px 0;
+
+    border-bottom:1px solid var(--line);
+
+    font-size:14px;
+}
+
+.contact-link span{
+    color:#858078;
+}
+
+.map{
+    min-height:430px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(10,10,9,.65),
+            rgba(10,10,9,.85)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=90")
+        center/cover;
+}
+
+.map-card{
+    padding:30px;
+
+    max-width:350px;
+
+    border-radius:22px;
+    border:1px solid var(--line);
+
+    background:rgba(12,12,11,.82);
+    backdrop-filter:blur(15px);
+}
+
+.map-card p{
+    color:#99938b;
+    font-size:13px;
+    line-height:1.6;
+    margin:10px 0 20px;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:30px 0;
+
+    color:#6f6b64;
+    font-size:12px;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+}
+
+/* ---------------- FLOAT BUTTON ---------------- */
+
+.float-button{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    width:56px;
+    height:56px;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--orange);
+    color:#17110c;
+
+    font-size:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+    z-index:900;
+
+    transition:.3s;
+}
+
+.float-button:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+/* ---------------- ANIMATION ---------------- */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:800px){
+
+    .container{
+        width:calc(100% - 28px);
+    }
+
+    header{
+        height:68px;
+    }
+
+    .nav-links,
+    .reserve{
+        display:none;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .hero{
+        min-height:850px;
+
+        background:
+            linear-gradient(
+                rgba(6,6,5,.75),
+                rgba(6,6,5,.96)
+            ),
+            url("https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1600&q=90")
+            center/cover;
+    }
+
+    h1{
+        font-size:clamp(56px,17vw,88px);
+        letter-spacing:-4px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .stats{
+        gap:15px;
+        flex-wrap:wrap;
+    }
+
+    .stat-line{
+        display:none;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .section-title{
+        display:block;
+    }
+
+    .section-description{
+        margin-top:20px;
+    }
+
+    .about-grid,
+    .delivery-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .about-image{
+        height:430px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .experience{
+        min-height:650px;
+        background-attachment:scroll;
+    }
+
+    .delivery-image{
+        height:400px;
+        order:-1;
+    }
+
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+
+    .contact-content{
+        padding:35px;
+    }
+
+    .map{
+        min-height:350px;
+    }
+
+    .footer{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header id="header">
+
+<div class="container nav">
+
+<a href="#top" class="logo">
+BA<span>O</span>
+</a>
+
+<nav class="nav-links">
+
+<a href="#about">О нас</a>
+<a href="#menu">Меню</a>
+<a href="#delivery">Доставка</a>
+<a href="#contacts">Контакты</a>
+
+</nav>
+
+<a href="tel:+77081026904" class="reserve">
+Забронировать
+</a>
+
+<button class="mobile-menu">
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main id="top">
+
+<section class="hero">
+
+<div class="container hero-content reveal">
+
+<div class="kicker">
+Pan-Asian restaurant · Алматы
+</div>
+
+<h1>
+Еда,<br>
+<span>которая</span><br>
+запоминается.
+</h1>
+
+<p class="hero-description">
+Рамен, суши, WOK, поке, том-ям и любимые блюда
+паназиатской кухни — в атмосфере BAO.
+</p>
+
+<div class="buttons">
+
+<a href="#menu" class="btn btn-main">
+Смотреть меню ↓
+</a>
+
+<a href="tel:+77081026904" class="btn btn-dark">
+Позвонить
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-stats">
+
+<div class="container stats">
+
+<div>
+<strong>4.9</strong>
+рейтинг
+</div>
+
+<div class="stat-line"></div>
+
+<div>
+<strong>2878</strong>
+отзывов
+</div>
+
+<div class="stat-line"></div>
+
+<div>
+<strong>120</strong>
+мест
+</div>
+
+<div class="stat-line"></div>
+
+<div>
+Толе би 181
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="container about-grid">
+
+<div class="about-image reveal">
+
+<img
+src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=90"
+alt="BAO ресторан">
+
+<div class="image-label">
+BAO · ASSEM PLAZA
+</div>
+
+</div>
+
+
+<div class="about-text reveal">
+
+<div class="kicker">
+Наш подход
+</div>
+
+<h2>
+Паназиатская кухня
+без скучных правил.
+</h2>
+
+<p>
+BAO — место для быстрого обеда, уютного ужина,
+встречи с друзьями или большого праздника.
+В меню встретились рамен, WOK, суши, поке,
+том-ям и блюда, которые хочется заказывать снова.
+</p>
+
+
+<div class="features">
+
+<div class="feature">
+<strong>🍜 Рамен</strong>
+<span>
+Насыщенные бульоны и яркие сочетания.
+</span>
+</div>
+
+<div class="feature">
+<strong>🥢 WOK</strong>
+<span>
+Лапша и горячие блюда прямо с огня.
+</span>
+</div>
+
+<div class="feature">
+<strong>🍣 Sushi</strong>
+<span>
+Роллы и свежие паназиатские вкусы.
+</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section class="menu" id="menu">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<div>
+
+<div class="kicker">
+Меню
+</div>
+
+<h2>
+Выбирай<br>
+своё.
+</h2>
+
+</div>
+
+<p class="section-description">
+Популярные позиции меню BAO.
+Цены указаны в тенге.
+</p>
+
+</div>
+
+
+<div class="menu-tabs reveal">
+
+<button class="tab active" data-category="all">
+Всё
+</button>
+
+<button class="tab" data-category="soup">
+Супы
+</button>
+
+<button class="tab" data-category="burger">
+Бургеры
+</button>
+
+<button class="tab" data-category="poke">
+Поке
+</button>
+
+<button class="tab" data-category="wok">
+WOK
+</button>
+
+<button class="tab" data-category="salad">
+Салаты
+</button>
+
+<button class="tab" data-category="hot">
+Горячее
+</button>
+
+<button class="tab" data-category="dessert">
+Десерты
+</button>
+
+<button class="tab" data-category="kids">
+Детское
+</button>
+
+<button class="tab" data-category="rolls">
+Роллы
+</button>
+
+</div>
+
+
+<div class="menu-grid">
+
+
+<!-- SOUPS -->
+
+<div class="menu-item" data-category="soup">
+<div>
+<h3>Сёю рамен</h3>
+<p>Классический насыщенный рамен</p>
+</div>
+<div class="price">2 470 ₸</div>
+</div>
+
+<div class="menu-item" data-category="soup">
+<div>
+<h3>Кукси</h3>
+<p>Корейский холодный суп</p>
+</div>
+<div class="price">2 770 ₸</div>
+</div>
+
+<div class="menu-item" data-category="soup">
+<div>
+<h3>Рамен шрирача с пастрами</h3>
+</div>
+<div class="price">3 270 ₸</div>
+</div>
+
+<div class="menu-item" data-category="soup">
+<div>
+<h3>Рамен с морепродуктами</h3>
+</div>
+<div class="price">3 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="soup">
+<div>
+<h3>Мисо широ</h3>
+</div>
+<div class="price">1 770 ₸</div>
+</div>
+
+<div class="menu-item" data-category="soup">
+<div>
+<h3>Мисо с лососем</h3>
+</div>
+<div class="price">2 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="soup">
+<div>
+<h3>Том Ям</h3>
+</div>
+<div class="price">4 170 ₸</div>
+</div>
+
+
+<!-- BURGERS -->
+
+<div class="menu-item" data-category="burger">
+<div>
+<h3>БАО бургер с креветкой</h3>
+</div>
+<div class="price">2 170 ₸</div>
+</div>
+
+<div class="menu-item" data-category="burger">
+<div>
+<h3>БАО бургер с мраморной говядиной</h3>
+</div>
+<div class="price">2 270 ₸</div>
+</div>
+
+<div class="menu-item" data-category="burger">
+<div>
+<h3>БАО бургер с курицей</h3>
+</div>
+<div class="price">1 570 ₸</div>
+</div>
+
+
+<!-- POKE -->
+
+<div class="menu-item" data-category="poke">
+<div>
+<h3>Поке с креветками</h3>
+</div>
+<div class="price">3 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="poke">
+<div>
+<h3>Поке эдамаме боул</h3>
+</div>
+<div class="price">4 770 ₸</div>
+</div>
+
+
+<!-- WOK -->
+
+<div class="menu-item" data-category="wok">
+<div>
+<h3>Тайская лапша пад тай</h3>
+</div>
+<div class="price">3 770 ₸</div>
+</div>
+
+<div class="menu-item" data-category="wok">
+<div>
+<h3>Китайская лапша с жареной говядиной</h3>
+</div>
+<div class="price">2 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="wok">
+<div>
+<h3>Пряная лапша с курицей и овощами</h3>
+</div>
+<div class="price">2 870 ₸</div>
+</div>
+
+
+<!-- SALADS -->
+
+<div class="menu-item" data-category="salad">
+<div>
+<h3>Салат боул Asia Tofu</h3>
+</div>
+<div class="price">2 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="salad">
+<div>
+<h3>Ким Чи</h3>
+</div>
+<div class="price">1 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="salad">
+<div>
+<h3>Огурцы по старинному тайваньскому рецепту</h3>
+</div>
+<div class="price">1 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="salad">
+<div>
+<h3>Салат с тёплыми хрустящими баклажанами</h3>
+</div>
+<div class="price">2 170 ₸</div>
+</div>
+
+
+<!-- HOT -->
+
+<div class="menu-item" data-category="hot">
+<div>
+<h3>Яннем Чикен</h3>
+</div>
+<div class="price">2 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="hot">
+<div>
+<h3>Креветки в сладком соусе «Васаби» с миндалём</h3>
+</div>
+<div class="price">3 170 ₸</div>
+</div>
+
+
+<!-- DESSERT -->
+
+<div class="menu-item" data-category="dessert">
+<div>
+<h3>Моти с маракуйей</h3>
+</div>
+<div class="price">1 070 ₸</div>
+</div>
+
+<div class="menu-item" data-category="dessert">
+<div>
+<h3>Моти с ягодами</h3>
+</div>
+<div class="price">1 070 ₸</div>
+</div>
+
+<div class="menu-item" data-category="dessert">
+<div>
+<h3>Пудинг чиа с манговым пюре</h3>
+</div>
+<div class="price">2 170 ₸</div>
+</div>
+
+<div class="menu-item" data-category="dessert">
+<div>
+<h3>Тайский жареный банан с мороженым</h3>
+</div>
+<div class="price">1 870 ₸</div>
+</div>
+
+<div class="menu-item" data-category="dessert">
+<div>
+<h3>Мороженое</h3>
+</div>
+<div class="price">1 070 ₸</div>
+</div>
+
+
+<!-- KIDS -->
+
+<div class="menu-item" data-category="kids">
+<div>
+<h3>Наггетсы Моана</h3>
+</div>
+<div class="price">1 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="kids">
+<div>
+<h3>Сладкие роллы Панда по Кевину</h3>
+</div>
+<div class="price">1 470 ₸</div>
+</div>
+
+<div class="menu-item" data-category="kids">
+<div>
+<h3>Супчик с лапшой Миньон</h3>
+</div>
+<div class="price">1 070 ₸</div>
+</div>
+
+
+<!-- ROLLS -->
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Калифорния Кани</h3>
+</div>
+<div class="price">1 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Филадельфия Маки</h3>
+</div>
+<div class="price">3 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Ролл с тар-таром из краба</h3>
+</div>
+<div class="price">1 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Ролл с тар-таром из тунца Спайси</h3>
+</div>
+<div class="price">1 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Кани Эби</h3>
+</div>
+<div class="price">2 870 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Фудзи</h3>
+</div>
+<div class="price">2 770 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Sake Avokado</h3>
+</div>
+<div class="price">3 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Эби Авокадо</h3>
+</div>
+<div class="price">2 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Манго Эби</h3>
+</div>
+<div class="price">3 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Филадельфия Smoke</h3>
+</div>
+<div class="price">3 770 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Канада</h3>
+</div>
+<div class="price">2 970 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Чиз Эби Темпура Маки</h3>
+</div>
+<div class="price">2 470 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Американо ролл</h3>
+</div>
+<div class="price">3 770 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Поцелуй Гейши</h3>
+</div>
+<div class="price">4 570 ₸</div>
+</div>
+
+<div class="menu-item" data-category="rolls">
+<div>
+<h3>Crunch Roll с лососем и манго</h3>
+</div>
+<div class="price">2 970 ₸</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section class="experience">
+
+<div class="container experience-content reveal">
+
+<div class="kicker">
+Вечер в BAO
+</div>
+
+<h2>
+Здесь хочется<br>
+остаться подольше.
+</h2>
+
+<p>
+Летняя веранда, столики на улице, Wi-Fi,
+до 120 мест и пространство для встреч,
+ужинов и банкетов.
+</p>
+
+<div class="badges">
+
+<div class="badge">Летняя веранда</div>
+<div class="badge">Банкеты</div>
+<div class="badge">Wi-Fi</div>
+<div class="badge">Можно с ноутбуком</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= DELIVERY ================= -->
+
+<section id="delivery">
+
+<div class="container delivery-grid">
+
+<div class="reveal">
+
+<div class="kicker">
+Доставка & takeaway
+</div>
+
+<h2>
+BAO там,<br>
+где ты.
+</h2>
+
+<p class="section-description" style="margin-top:22px">
+
+Заказывай любимые блюда домой
+или забирай с собой: суши, пиццу,
+бургеры, WOK, десерты, гёдза,
+супы, том-ям и многое другое.
+
+</p>
+
+
+<div class="info-list">
+
+<div class="info">
+
+<div class="icon">⌁</div>
+
+<div>
+
+<strong>
+Заказ навынос
+</strong>
+
+<span>
+Забери любимые блюда с собой.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="icon">⌁</div>
+
+<div>
+
+<strong>
+Доставка
+</strong>
+
+<span>
+Суши, пицца, WOK, десерты,
+салаты и горячие блюда.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="info">
+
+<div class="icon">₸</div>
+
+<div>
+
+<strong>
+Средний чек — 8 000 ₸
+</strong>
+
+<span>
+Карта, наличные, банк,
+QR-код и приложение.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="delivery-image reveal">
+
+<img
+src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=90"
+alt="Паназиатская кухня">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contacts">
+
+<div class="container">
+
+<div class="contact-box reveal">
+
+<div class="contact-content">
+
+<div class="kicker">
+Контакты
+</div>
+
+<h2>
+Заглядывай<br>
+в BAO.
+</h2>
+
+<p>
+ЖК Assem Plaza, улица Толе би, 181,
+Алматы.
+</p>
+
+
+<div class="contact-links">
+
+<a
+href="tel:+77081026904"
+class="contact-link">
+
+Телефон
+
+<span>
++7 708 102 69 04 ↗
+</span>
+
+</a>
+
+
+<a
+href="https://www.instagram.com/bao_kz"
+target="_blank"
+class="contact-link">
+
+Instagram
+
+<span>
+@bao_kz ↗
+</span>
+
+</a>
+
+
+<a
+href="https://link.2gis.ru/4.3/12FA818D/aHR0cDovL2Jhb2Zvb2Qua3ovYXBwL2luZGV4Lmh0bWw="
+target="_blank"
+class="contact-link">
+
+Приложение / 2GIS
+
+<span>
+Открыть ↗
+</span>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="map">
+
+<div class="map-card">
+
+<strong>
+BAO · Assem Plaza
+</strong>
+
+<p>
+Толе би, 181<br>
+Алматы · Казахстан
+</p>
+
+<a
+class="btn btn-main"
+target="_blank"
+href="https://www.google.com/maps/search/?api=1&query=Толе+би+181+Алматы">
+
+Построить маршрут ↗
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container footer">
+
+<div>
+© BAO · Pan-Asian Restaurant
+</div>
+
+<a
+href="https://www.instagram.com/bao_kz"
+target="_blank">
+
+Instagram @bao_kz
+
+</a>
+
+</div>
+
+</footer>
+
+
+<!-- FLOAT PHONE -->
+
+<a
+href="tel:+77081026904"
+class="float-button">
+
+☎
+
+</a>
+
+
+<script>
+
+/* HEADER */
+
+const header =
+document.getElementById("header");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 30){
+    header.classList.add("scrolled");
+}else{
+    header.classList.remove("scrolled");
+}
+
+});
+
+
+/* SCROLL ANIMATION */
+
+const observer =
+new IntersectionObserver(
+entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
+
+
+/* MENU FILTER */
+
+const tabs =
+document.querySelectorAll(".tab");
+
+const items =
+document.querySelectorAll(".menu-item");
+
+
+tabs.forEach(tab=>{
+
+tab.addEventListener("click",()=>{
+
+tabs.forEach(t=>
+t.classList.remove("active")
+);
+
+tab.classList.add("active");
+
+const category =
+tab.dataset.category;
+
+items.forEach(item=>{
+
+if(
+category === "all" ||
+item.dataset.category === category
+){
+
+item.classList.remove("hide");
+
+}else{
+
+item.classList.add("hide");
+
+}
+
+});
+
+});
+
+});
+
+
+/* MOBILE NAV */
+
+const mobileButton =
+document.querySelector(".mobile-menu");
+
+const nav =
+document.querySelector(".nav-links");
+
+mobileButton.addEventListener("click",()=>{
+
+nav.style.display =
+nav.style.display === "flex"
+? "none"
+: "flex";
+
+nav.style.position="absolute";
+nav.style.top="68px";
+nav.style.left="0";
+nav.style.right="0";
+
+nav.style.padding="22px";
+
+nav.style.background=
+"rgba(11,11,10,.97)";
+
+nav.style.backdropFilter=
+"blur(20px)";
+
+nav.style.flexDirection="column";
+
+nav.style.borderBottom=
+"1px solid rgba(255,255,255,.1)";
+
+});
+
+
+/* CLOSE MOBILE MENU AFTER CLICK */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+if(window.innerWidth <= 800){
+
+nav.style.display="none";
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
